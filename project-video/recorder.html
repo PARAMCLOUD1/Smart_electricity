@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Project video renderer</title><style>html,body{margin:0;background:#080e18;color:#edf5fa;font:16px 'Segoe UI',sans-serif}canvas{display:block;width:100vw;height:auto}#status{position:fixed;top:0;left:0;background:#080e18;padding:8px;font-size:12px}</style><canvas width="1920" height="1080" id="video"></canvas><div id="status">Preparing…</div><script>
+'use strict';
+const canvas=document.getElementById('video'),ctx=canvas.getContext('2d'),status=document.getElementById('status');
+window.recordingState={status:'idle'};
+function text(content,x,y,width,size=36,color='#edf5fa',weight=400){ctx.font=`${weight} ${size}px "Segoe UI",sans-serif`;ctx.fillStyle=color;let line='',row=0;for(const word of content.split(/\s+/)){const next=line?line+' '+word:word;if(line&&ctx.measureText(next).width>width){ctx.fillText(line,x,y+row*size*1.4);row++;line=word;}else line=next;}if(line)ctx.fillText(line,x,y+row*size*1.4);return row+1;}
+function rounded(x,y,w,h,r=18,fill='#101b2a',stroke='#263749'){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fillStyle=fill;ctx.fill();if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=2;ctx.stroke();}}
+function card(label,body,x,y,w){rounded(x,y,w,210,20);text(label,x+30,y+55,w-60,34,'#b8f568',650);text(body,x+30,y+112,w-60,28,'#b1c1cf');}
+function imageFrame(img,x,y,w,h,alpha=1){if(!img)return;ctx.save();ctx.globalAlpha=alpha;ctx.beginPath();ctx.roundRect(x,y,w,h,14);ctx.clip();ctx.fillStyle='#080e18';ctx.fillRect(x,y,w,h);const scale=Math.min(w/img.width,h/img.height),dw=img.width*scale,dh=img.height*scale;ctx.drawImage(img,x+(w-dw)/2,y+(h-dh)/2,dw,dh);ctx.restore();}
+function draw(scene,index,time,total,local,duration){
+  const bg=ctx.createLinearGradient(0,0,1920,1080);bg.addColorStop(0,'#101d2b');bg.addColorStop(1,'#07101a');ctx.fillStyle=bg;ctx.fillRect(0,0,1920,1080);
+  ctx.strokeStyle='#7ea6bd0c';ctx.lineWidth=1;for(let x=0;x<1920;x+=80){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,1080);ctx.stroke();}for(let y=0;y<1080;y+=80){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(1920,y);ctx.stroke();}
+  text('VOLT / GRID  ·  DAA PROJECT WALKTHROUGH',60,51,1500,22,'#a4b7c6',650);text(`${String(index+1).padStart(2,'0')} / 17`,1710,51,170,23,'#b8f568',600);
+  text(scene.tag,60,98,1700,20,'#b8f568',600);text(scene.title,60,157,1780,47,'#edf5fa',600);
+  rounded(56,191,1808,649,22,'#0b1520','#31495d');
+  if(scene.kind==='screen'){
+    imageFrame(scene.image,64,199,1792,633);
+    if(scene.alternate){const blend=Math.max(0,Math.min(1,(local/duration-.44)*8));imageFrame(scene.alternate,64,199,1792,633,blend);}
+  }else if(scene.kind==='architecture'){
+    text('All computation stays in your browser',110,290,1680,48,'#edf5fa',600);
+    card('HTML + CSS','Responsive dashboard, eight themes, and a CSS 3D city.',110,360,510);card('JAVASCRIPT','Four algorithms, trace replay, charts, and measured reports.',704,360,510);card('LOCAL STORAGE','Area records and up to 100 historical report snapshots.',1298,360,510);
+    text('NO PYTHON BACKEND  /  NO SQLITE OR NOSQL  /  NO EXTERNAL CHART CDN',110,700,1640,28,'#b8f568',600);
+    text('Data is separate for each browser, device and website origin.',110,768,1650,30,'#9fb5c5');
+  }else if(scene.kind==='desktop'){
+    text('Original Python / Tkinter application',110,290,1660,46,'#edf5fa',600);
+    card('1. ESSENTIAL LOADS','Greedy accepts essential loads by priority, demand and ID.',110,360,510);card('2. OPTIONAL LOADS','0/1 Knapsack optimizes priority within remaining capacity.',704,360,510);card('3. RESULTS','Merge Sort ranks demand. Binary Search looks up IDs.',1298,360,510);
+    text('100 AREAS  /  0–10,000 kW  /  PRIORITY 1–10  /  SESSION-ONLY DATA',110,685,1660,28,'#b8f568',600);
+    text('The current web dashboard runs Greedy and Knapsack independently.',110,758,1660,32,'#c5d2dd');
+  }else{
+    text('Public Render deployment',110,294,1640,35,'#b8f568',600);
+    text('paramsmartelectricitysystem.onrender.com',110,374,1660,55,'#edf5fa',600);
+    text('Vercel: smart-electricity-three.vercel.app',110,466,1660,34,'#a7bfd0');
+    text('GitHub: PARAMCLOUD1 / Smart_electricity',110,530,1660,34,'#a7bfd0');
+    rounded(110,593,1680,168,16,'#172a27','#45663f');text('EDUCATIONAL SIMULATION',145,646,1600,27,'#b8f568',600);text('No forecasting, time-slot scheduling, real power-flow calculation or physical switching.',145,702,1570,30,'#d2dfda');
+  }
+  rounded(56,861,1808,160,18,'#142334','#2c4357');
+  const chunks=scene.captions||[],ratio=Math.max(0,Math.min(.999,(local-.4)/Math.max(.1,duration-1))),caption=chunks[Math.min(chunks.length-1,Math.floor(ratio*chunks.length))]||'';
+  text(caption,90,916,1740,34,'#f2f7fb',450);
+  ctx.fillStyle='#263749';ctx.fillRect(56,1044,1808,5);ctx.fillStyle='#b8f568';ctx.fillRect(56,1044,1808*Math.min(1,time/total),5);
+  const stamp=seconds=>`${Math.floor(seconds/60)}:${String(Math.floor(seconds%60)).padStart(2,'0')}`;text(`${stamp(time)} / ${stamp(total)}  ·  English narration + captions`,60,1074,1750,17,'#8da5b7');
+}
+window.prepareFrames=async()=>{
+  const manifest=await (await fetch('/manifest.json')).json();window.videoScenes=manifest.scenes;window.videoTotal=manifest.total_seconds;
+  for(const scene of window.videoScenes){const words=scene.narration.split(/\s+/);scene.captions=[];for(let i=0;i<words.length;i+=19)scene.captions.push(words.slice(i,i+19).join(' '));if(scene.kind==='screen'){scene.image=await new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src='/assets/'+scene.id+'.png'});if(scene.hasAlternate)scene.alternate=await new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src='/assets/'+scene.id+'-alternate.png'});}}return true;
+};
+window.renderFrame=(index,chunk)=>{const scene=window.videoScenes[index],span=(scene.duration-1)/scene.captions.length,local=.4+(chunk+.5)*span,offset=window.videoScenes.slice(0,index).reduce((n,s)=>n+s.duration,0);draw(scene,index,offset+local,window.videoTotal,local,scene.duration);return canvas.toDataURL('image/png').split(',')[1];};
+</script></html>

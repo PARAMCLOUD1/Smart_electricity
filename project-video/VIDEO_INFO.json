@@ -1,0 +1,16 @@
+{
+  "file": "Smart-Electricity-Walkthrough.mp4",
+  "bytes": 18780760,
+  "language": "English",
+  "narration": "Microsoft David Desktop",
+  "chapters": 17,
+  "expected_duration_seconds": 406.73764172335603,
+  "resolution": "1920x1080",
+  "frames_per_second": 20,
+  "video_codec": "H.264",
+  "audio_codec": "AAC",
+  "encoder": "FFmpeg 6.1.1",
+  "generated_at": "2026-11-01T21:53:42.343Z",
+  "validation": "Decoded first 3 seconds and last 2 seconds; confirmed H.264, AAC and 1920x1080",
+  "metadata": "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\\Users\\simmibaby\\Desktop\\Smart_electricity\\project-video\\Smart-Electricity-Walkthrough.mp4':\r\n  Metadata:\r\n    major_brand     : isom\r\n    minor_version   : 512\r\n    compatible_brands: isomiso2avc1mp41\r\n    encoder         : Lavf60.16.100\r\n  Duration: 00:06:46.74, start: 0.000000, bitrate: 369 kb/s\r\n  Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(progressive), 1920x1080, 278 kb/s, 20 fps, 20 tbr, 10240 tbn (default)\r\n    Metadata:\r\n      handler_name    : VideoHandler\r\n      vendor_id       : [0][0][0][0]\r\n      encoder         : Lavc60.31.102 libx264\r\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 22050 Hz, mono, fltp, 88 kb/s (default)\r\n    Metadata:\r\n      handler_name    : SoundHandler\r\n      vendor_id       : [0][0][0][0]\r\nAt least one output file must be specified\r\n"
+}

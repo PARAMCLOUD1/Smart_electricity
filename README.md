@@ -12,6 +12,14 @@ The repository also contains the original Python/Tkinter desktop application. Th
 
 The primary Render site serves the current source. Other deployments are separate publication targets and may need their own redeployment after changes. The personalized URL does not change the app's VOLT / GRID branding. No login is needed to open the published app.
 
+## Project walkthrough video
+
+A **6 minute 47 second, 1080p English-narrated walkthrough** explains the current working application in 17 chapters, with real UI captures and burned-in captions. It covers the dashboard, all four algorithms, performance measurements, reports, exports, themes, desktop differences, deployment and limitations.
+
+![Project walkthrough preview](project-video/cover.jpg)
+
+The MP4 is delivered separately as `project-video/Smart-Electricity-Walkthrough.mp4` and is not stored in Git. See the [video source and recreation guide](project-video/README.md), [complete narration](project-video/NARRATION.md), [subtitles](project-video/walkthrough.srt) and [validated media information](project-video/VIDEO_INFO.json).
+
 ## Current web dashboard
 
 The website in `smart-electricity/` runs entirely in the browser. It uses HTML, CSS, JavaScript and locally bundled Chart.js. **No Python backend, SQLite, NoSQL database, API key or paid persistent disk is required.** Records and up to 100 historical reports are saved in localStorage for the current browser and website origin. Different devices, browsers and hosting URLs have separate records. Clearing browser storage removes them; export CSV reports to retain a copy.
