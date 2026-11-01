@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+instance/
+browser-mobile.png
+browser-light.png
+browser-dark.png
+.vercel/
+report/
+frontend-dist/
+.env
+.env.*
+
+dist/
