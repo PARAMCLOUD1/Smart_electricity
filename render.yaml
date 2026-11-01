@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: smart-electricity
+    runtime: static
+    repo: https://github.com/PARAMCLOUD1/Smart_electricity
+    branch: main
+    rootDir: smart-electricity
+    buildCommand: npm run build
+    staticPublishPath: dist

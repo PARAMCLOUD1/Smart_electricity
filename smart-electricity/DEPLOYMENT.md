@@ -1,5 +1,15 @@
 # Free static deployment
 
+## Render static site
+
+The repository-root `render.yaml` declares a static site, not a paid web server. Use a new Render Blueprint with `https://github.com/PARAMCLOUD1/Smart_electricity`, or create a Static Site manually with root directory `smart-electricity`, build command `npm run build`, and publish directory `dist`. The application needs no environment variables, database, disk or start command. Render serves the built files on its provided onrender.com address. Account authorization is required before creating the service. Hash routes such as `/#algorithm-report` work without rewrite rules.
+
+## Vercel (live)
+
+https://smart-electricity-three.vercel.app/
+
+The CLI project is linked locally. The site is deployed, but the automatic GitHub integration still requires authorization in Vercel. Manual redeployment works from `smart-electricity` using `npx vercel deploy --prod`. Keep `.vercel` ignored because it is local project metadata.
+
 ## GitHub Pages (current deployment)
 
 Live site: https://paramcloud1.github.io/Smart_electricity/
