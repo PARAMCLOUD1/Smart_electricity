@@ -1,5 +1,7 @@
 # VOLT / GRID — database-free edition
 
+For the complete current project description, setup guide, live URLs, web-versus-desktop differences and limitations, see the [main README](../README.md). A narrated walkthrough and its source are documented in [project-video](../project-video/README.md).
+
 The 3D electricity simulator now runs entirely in JavaScript. No SQLite, backend, Python packages, API keys or paid disk are required. Records and up to 100 reports persist in this browser's localStorage. Each visitor and device has independent data. Clearing browser storage removes it; export CSV reports to retain copies. Existing SQLite records are not imported automatically.
 
 Build: npm run build. Publish the dist folder. Preview it with any static file server. See [free deployment instructions](DEPLOYMENT.md).
