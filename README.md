@@ -14,11 +14,11 @@ The primary Render site serves the current source. Other deployments are separat
 
 ## Project walkthrough video
 
-A **6 minute 47 second, 1080p English-narrated walkthrough** explains the current working application in 17 chapters, with real UI captures and burned-in captions. It covers the dashboard, all four algorithms, performance measurements, reports, exports, themes, desktop differences, deployment and limitations.
+A **continuous live-website demonstration** shows the project being operated: cursor movement, typing, adding/editing/deleting areas, changing capacity, real algorithm playback, benchmark measurements, report downloads and theme changes. It includes English narration and small on-screen captions.
 
-![Project walkthrough preview](project-video/cover.jpg)
+![Live website demonstration preview](project-video/live-demo-cover.jpg)
 
-The MP4 is delivered separately as `project-video/Smart-Electricity-Walkthrough.mp4` and is not stored in Git. See the [video source and recreation guide](project-video/README.md), [complete narration](project-video/NARRATION.md), [subtitles](project-video/walkthrough.srt) and [validated media information](project-video/VIDEO_INFO.json).
+The replacement MP4 is delivered separately as `project-video/Smart-Electricity-Live-Demo.mp4` and is not stored in Git. See the [live-demo guide](project-video/LIVE_DEMO_README.md), [narration](project-video/LIVE_DEMO_NARRATION.md) and [validated media information](project-video/LIVE_DEMO_INFO.json). The earlier presentation-style walkthrough and its [source guide](project-video/README.md) remain separate artifacts.
 
 ## Current web dashboard
 

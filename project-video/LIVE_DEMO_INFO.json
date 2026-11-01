@@ -1,0 +1,76 @@
+{
+  "file": "Smart-Electricity-Live-Demo.mp4",
+  "bytes": 14198097,
+  "site": "https://paramsmartelectricitysystem.onrender.com/",
+  "recording": "Continuous real browser screencast; no slide images",
+  "resolution": "1280x720",
+  "fps": 12,
+  "narration": "English / Microsoft David Desktop",
+  "duration_seconds": 255.27614512471655,
+  "frames": 3064,
+  "steps": [
+    {
+      "id": "open",
+      "action_ms": 460.34310000000187
+    },
+    {
+      "id": "overview",
+      "action_ms": 2797.5838000000003
+    },
+    {
+      "id": "add",
+      "action_ms": 25539.21209999999
+    },
+    {
+      "id": "edit",
+      "action_ms": 9691.872199999998
+    },
+    {
+      "id": "delete",
+      "action_ms": 2318.7805999999982
+    },
+    {
+      "id": "capacity",
+      "action_ms": 22398.568799999994
+    },
+    {
+      "id": "greedy",
+      "action_ms": 11699.724400000006
+    },
+    {
+      "id": "knapsack",
+      "action_ms": 4297.80279999999
+    },
+    {
+      "id": "merge",
+      "action_ms": 7103.88009999998
+    },
+    {
+      "id": "binary",
+      "action_ms": 5932.755900000018
+    },
+    {
+      "id": "benchmark",
+      "action_ms": 10295.965199999977
+    },
+    {
+      "id": "export",
+      "action_ms": 7188.266100000008
+    },
+    {
+      "id": "reports",
+      "action_ms": 6638.906500000012
+    },
+    {
+      "id": "themes",
+      "action_ms": 15093.586899999995
+    },
+    {
+      "id": "finish",
+      "action_ms": 3284.07699999999
+    }
+  ],
+  "errors": [],
+  "generated_at": "2026-11-01T22:18:07.074Z",
+  "metadata": "Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'C:\\Users\\simmibaby\\Desktop\\Smart_electricity\\project-video\\Smart-Electricity-Live-Demo.mp4':\r\n  Metadata:\r\n    major_brand     : isom\r\n    minor_version   : 512\r\n    compatible_brands: isomiso2avc1mp41\r\n    encoder         : Lavf60.16.100\r\n  Duration: 00:04:15.28, start: 0.000000, bitrate: 444 kb/s\r\n  Stream #0:0[0x1](und): Video: h264 (Constrained Baseline) (avc1 / 0x31637661), yuv420p(tv, bt470bg/unknown/unknown, progressive), 1280x720 [SAR 1:1 DAR 16:9], 374 kb/s, 12 fps, 12 tbr, 12288 tbn (default)\r\n    Metadata:\r\n      handler_name    : VideoHandler\r\n      vendor_id       : [0][0][0][0]\r\n      encoder         : Lavc60.31.102 libx264\r\n  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 22050 Hz, mono, fltp, 68 kb/s (default)\r\n    Metadata:\r\n      handler_name    : SoundHandler\r\n      vendor_id       : [0][0][0][0]\r\n"
+}
