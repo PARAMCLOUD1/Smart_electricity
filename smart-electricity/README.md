@@ -1,4 +1,4 @@
-# VOLT / GRID — database-free edition
+# Param Smart Electricity System
 
 The 3D electricity simulator now runs entirely in JavaScript. No SQLite, backend, Python packages, API keys or paid disk are required. Records and up to 100 reports persist in this browser's localStorage. Each visitor and device has independent data. Clearing browser storage removes it; export CSV reports to retain copies. Existing SQLite records are not imported automatically.
 
