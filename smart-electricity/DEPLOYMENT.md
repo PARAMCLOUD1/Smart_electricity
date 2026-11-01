@@ -2,6 +2,10 @@
 
 ## Render static site
 
+Primary Render URL: https://paramsmartelectricitysystem.onrender.com/
+
+The URL contains the personalized name; the app retains its original VOLT / GRID branding. The previous `smart-electricity.onrender.com` deployment remains available for existing links.
+
 The repository-root `render.yaml` declares a static site, not a paid web server. Use a new Render Blueprint with `https://github.com/PARAMCLOUD1/Smart_electricity`, or create a Static Site manually with root directory `smart-electricity`, build command `npm run build`, and publish directory `dist`. The application needs no environment variables, database, disk or start command. Render serves the built files on its provided onrender.com address. Account authorization is required before creating the service. Hash routes such as `/#algorithm-report` work without rewrite rules.
 
 ## Vercel (live)
