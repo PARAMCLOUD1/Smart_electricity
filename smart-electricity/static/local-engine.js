@@ -15,8 +15,8 @@ const LocalGrid = (() => {
     return {records:visit(items),original:items.map(x=>x.id),steps,operations:comparisons,comparisons,merges};
   }
   function execute(name,records,capacity,target=1,descending=false,trace=true){
-    let preparation_ns=0,sorted;
-    if(name==='binary'){const t=performance.now();sorted=merge(records,'id',false,false).records;preparation_ns=Math.round((performance.now()-t)*1e6);}
+    let preparation_ns=0,preparation_ms=0,sorted;
+    if(name==='binary'){const t=performance.now();sorted=merge(records,'id',false,false).records;preparation_ms=performance.now()-t;preparation_ns=Math.round(preparation_ms*1e6);}
     const start=performance.now();let result;
     if(name==='merge')result=merge(records,'demand',descending,trace);
     else if(name==='binary'){
@@ -38,7 +38,8 @@ const LocalGrid = (() => {
       const ids=new Set(selected.map(a=>a.id)),allocated=capacity-remaining;
       result={selected,rejected:records.filter(a=>!ids.has(a.id)),allocated,remaining,benefit:selected.reduce((s,a)=>s+benefits[a.priority],0),utilization:capacity?allocated/capacity*100:0,steps,operations,...extra};
     }else throw Error('Unknown algorithm.');
-    result.time_ns=Math.max(0,Math.round((performance.now()-start)*1e6));return result;
+    result.time_ms=Math.max(0,performance.now()-start);result.preparation_ms=preparation_ms;
+    result.time_ns=Math.round(result.time_ms*1e6);return result;
   }
   function snapshot(){const selected=new Set(data.allocation?.result.selected.map(a=>a.id)||[]);const areas=data.areas.map(a=>({...a,status:data.allocation?(selected.has(a.id)?'Supplied':'Unsupplied'):'Pending'}));const used=data.allocation?.result.allocated||0,supplied=selected.size;return {areas,capacity:data.capacity,allocation:copy(data.allocation),stats:{demand:areas.reduce((s,a)=>s+a.demand,0),allocated:used,remaining:data.capacity-used,total:areas.length,supplied,unsupplied:data.allocation?areas.length-supplied:0,pending:data.allocation?0:areas.length,utilization:data.capacity?used/data.capacity*100:0}};}
   async function request(path,method='GET',body={}){

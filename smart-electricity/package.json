@@ -2,6 +2,6 @@
   "name": "smart-electricity-dashboard",
   "version": "1.0.0",
   "private": true,
-  "scripts": { "build": "node scripts/build_frontend.cjs" },
+  "scripts": { "build": "node scripts/build_frontend.cjs", "report:performance": "node scripts/performance_report.cjs" },
   "engines": { "node": ">=22" }
 }

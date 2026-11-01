@@ -1,7 +1,7 @@
 'use strict';
 const $=id=>document.getElementById(id), names={greedy:'Greedy Allocation',knapsack:'Knapsack Optimization',merge:'Merge Sort',binary:'Binary Search'};
 const complexity={greedy:['O(n log n)','O(n)','Priority-based full-load allocation'],knapsack:['O(n × C)','O(n × C)','Maximize summed priority benefit'],merge:['O(n log n)','O(n)','Demand ranking'],binary:['O(log n)','O(1) core','ID lookup, excluding preparation']};
-const descriptions={dashboard:'Your city. Fully connected.',manage:'Make room for every demand.',greedy:'Essentials first. Thoughtfully allocated.',knapsack:'A better balance of benefits.',merge:'A clearer view of every demand.',binary:'The right record. A little faster.',performance:'Good decisions, measured.',reports:'Every allocation has a story.'};
+const descriptions={dashboard:'Your city. Fully connected.',manage:'Make room for every demand.',greedy:'Essentials first. Thoughtfully allocated.',knapsack:'A better balance of benefits.',merge:'A clearer view of every demand.',binary:'The right record. A little faster.',performance:'Good decisions, measured.','algorithm-report':'Algorithm Report',reports:'Every allocation has a story.'};
 let state=null, cache={}, reports=[], benchmark=null, timer=null, currentPage='dashboard', toastTimer;
 const charts={}, playback={};
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));

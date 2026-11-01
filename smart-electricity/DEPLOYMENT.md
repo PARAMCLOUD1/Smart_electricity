@@ -1,5 +1,13 @@
 # Free static deployment
 
+## GitHub Pages (current deployment)
+
+Live site: https://paramcloud1.github.io/Smart_electricity/
+
+The `main` branch contains source and documentation. The `gh-pages` branch contains only the output of `npm run build`, plus `.nojekyll` and `deployment.json`. GitHub Pages publishes the root of `gh-pages`. No database, server, domain purchase or API key is needed by the website. Source changes must be rebuilt and published to `gh-pages` before they appear on the live site. The deployment metadata identifies the published source commit.
+
+Open `/#algorithm-report` on the live site to run the performance report. Themes and electricity records are stored separately for the hosted origin; localhost records are not automatically uploaded.
+
 Use Cloudflare Pages Free with its provided pages.dev address. No purchased domain or database is needed.
 
 1. Connect your repository to Pages.

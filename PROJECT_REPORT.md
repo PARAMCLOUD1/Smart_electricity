@@ -1,5 +1,7 @@
 # Smart Electricity Load Management System
 
+This document describes the original desktop implementation. For the current database-free 3D website, source inventory, version differences and measured results, see [Algorithm Performance Report](ALGORITHM_PERFORMANCE_REPORT.md).
+
 **Subject:** Design and Analysis of Algorithms (DAA)  
 **Student:** ____________________  
 **Roll number:** ____________________  

@@ -2,6 +2,8 @@
 
 The current 3D web interface is in `smart-electricity/`. It runs entirely in the browser without SQLite or a backend. Run `npm run build` in that directory and publish `dist` to static hosting. See [free deployment instructions](smart-electricity/DEPLOYMENT.md).
 
+See the [algorithm inventory and performance report](ALGORITHM_PERFORMANCE_REPORT.md) for implementation locations, version differences, complexity, measurement methods and reproducible results.
+
 The independent browser-only version remains in `voltgrid-web/`. The original desktop application is documented below.
 
 # Smart Electricity Load Management System
